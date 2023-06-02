@@ -1,0 +1,17 @@
+# Use the official Nginx base image
+FROM nginx
+
+# remove the default config file
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy the custom Nginx configuration file
+COPY ./mynginx.conf /etc/nginx/conf.d/
+
+# Copy the website files to the default Nginx document root directory
+COPY ./website /usr/share/nginx/html
+
+# Expose port 80 to allow incoming HTTP traffic
+EXPOSE 80
+
+# Start Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]
