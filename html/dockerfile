@@ -1,0 +1,22 @@
+# Use a lightweight base image with Node.js
+FROM node:latest
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the HTML and CSS files to the container
+COPY index.html .
+COPY ./css ./css
+COPY ./images ./images
+COPY ./js ./js
+COPY about.html .
+COPY contact.html .
+COPY gallery.html .
+COPY services.html .
+
+
+# Install http-server globally via npm
+RUN npm install -g http-server
+
+# Set the command to start the server when the container launches
+CMD ["http-server", "-p", "80"]
