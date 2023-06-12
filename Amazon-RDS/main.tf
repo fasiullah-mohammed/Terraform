@@ -6,9 +6,9 @@ resource "aws_db_instance" "dbgroup" {
   engine               = "mysql"
   instance_class       = "db.t3.micro"
   allocated_storage    = 20
-  identifier           = "database-1"
-  username             = "admin"
-  password             = "Irving75062"
+  identifier           = "xxxxxxxxx"
+  username             = "xxxxxx"
+  password             = "xxxxxxx"
   publicly_accessible = false
 
   tags = {
@@ -17,11 +17,11 @@ resource "aws_db_instance" "dbgroup" {
 }
 
 data "aws_instance" "existing_instance" {
-  instance_id = "i-038ac0a4ce23e0017"
+  instance_id = "i-xxxxxxxxxxxxxxx"
 }
 
 resource "aws_security_group_rule" "dbgroup" {
-  security_group_id = "sg-03b16510c28207c78"
+  security_group_id = "sg-xxxxxxxxxxxxxx"
   type              = "ingress"
   from_port         = 3306
   to_port           = 3306
